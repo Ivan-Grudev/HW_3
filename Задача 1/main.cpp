@@ -60,9 +60,6 @@ int main()
     "Array sorting time is " << elapsed_a << endl <<
     "Set sorting time is " << elapsed_set << endl;
 
-    cout << endl << elapsed_str << " has the fastest sort"; // Существует значение size при котором меняется лидер,
-    //т.к. при увеличении числа элементов автоматическая сортировка set явно проигрывает std::sort, применённой к array
-    //однако более или менее точно это значение выяснить не удастся из-за того, что замеры имеют значительную погрешность
-    //из-за сторонних задач, выполняемых компьютером параллельно с выполнением замеров.
+    cout << endl << elapsed_str << " has the fastest sort"; 
     return 0;
 }
