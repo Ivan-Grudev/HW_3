@@ -4,10 +4,12 @@
 #include <vector>
 #include <boost/functional/hash.hpp>
 #include <ctime>
+#include <string>
+#include <fstream>
 
 using namespace std;
 
-int N = 150;
+int N = 700;
 
 struct Human {
     unsigned int age;
@@ -39,7 +41,15 @@ int main(int argc, char ** argv)
 //        std::cout << humans[i].age << " " << humans[i].name << std::endl;
 //    }
 
-    for (int k = 11; k < N; k++) {
+    std::string outFile_1 = "out.dat";
+    std::ofstream out_1(outFile_1);
+
+    if (!out_1.is_open()) {
+        std::cerr << "Can not open: " << outFile_1 << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    for (unsigned int k = 50; k < N; k++) {
         vector <size_t> dub;
         int count = 0;
 
@@ -64,8 +74,9 @@ int main(int argc, char ** argv)
             }
         }
 
-        cout << "N = " << k + 1 << "; collisions amount = " << count << endl;
+        out_1 << k + 1 << "\t" << count << "\n";
     }
 
+    out_1.close();
 	return EXIT_SUCCESS;
 }
